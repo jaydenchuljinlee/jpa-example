@@ -3,11 +3,12 @@ package com.example.demo.domain
 import javax.persistence.*
 
 @Entity
-data class member(
+@Table(name = "member")
+data class Member(
     @Id
     @GeneratedValue
     @Column(name = "member_id")
-    var id: Long,
+    var memberId: Long,
 
     @Column(name = "username")
     var username: String,
@@ -18,6 +19,7 @@ data class member(
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "team_id")
     var team: Team
+
 ) {
 
 }
